@@ -21,7 +21,7 @@ public class Department {
 	private String name;
 	
 	@OneToMany(mappedBy = "department")
-	private List<Person> listPerson = new ArrayList<>();
+	private List<Person> people = new ArrayList<>();
 	
 	public Department() {
 	}
@@ -55,8 +55,8 @@ public class Department {
 				+ name;
 	}
 
-	public List<Person> getListPerson() {
-		return listPerson;
+	public List<Person> getpeople() {
+		return people;
 	}
 		
 	
