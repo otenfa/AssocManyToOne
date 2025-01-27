@@ -9,6 +9,9 @@ public class PersonDepartmentDTO {
 	private Double salary;
 	
 	private DepartmentDTO department;
+	
+	public PersonDepartmentDTO() {
+	}
 
 	public PersonDepartmentDTO(Long id, String name, Double salary, DepartmentDTO department) {
 		this.id = id;
@@ -39,5 +42,5 @@ public class PersonDepartmentDTO {
 	public DepartmentDTO getDepartment() {
 		return department;
 	}
-		
+			
 }
