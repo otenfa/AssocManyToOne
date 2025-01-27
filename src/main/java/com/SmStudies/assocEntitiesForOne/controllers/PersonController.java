@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.SmStudies.assocEntitiesForOne.dto.PersonDTO;
 import com.SmStudies.assocEntitiesForOne.dto.PersonDepartmentDTO;
 import com.SmStudies.assocEntitiesForOne.services.PersonService;
 
@@ -20,7 +21,7 @@ public class PersonController {
 	@Autowired
 	private PersonService personService;
 	
-	@PostMapping
+	//@PostMapping
 	public ResponseEntity<PersonDepartmentDTO> insert(@RequestBody PersonDepartmentDTO dto){
 		dto = personService.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
@@ -28,4 +29,13 @@ public class PersonController {
 		return ResponseEntity.created(uri).body(dto);  
 	}
 	
+	@PostMapping
+	public ResponseEntity<PersonDTO> insert(@RequestBody PersonDTO dto){
+		dto = personService.insert(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(dto.getId()).toUri();
+		return ResponseEntity.created(uri).body(dto);  
+	}
+
+
 }
